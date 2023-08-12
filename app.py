@@ -14,8 +14,8 @@ url='https://raw.githubusercontent.com/imShashanKashyap/Diabetic_Model/main/diab
 response = requests.get(url)
 model = pickle.loads(response.content)
 
-st.title('Diabetes Prediction App')
-st.markdown("Model has been trained with data from 'National Institute of Diabetes and Digestive and Kidney Diseases' and has shown 85% accuracy")
+st.title('Diabetes Prediction App using Machine Learning')
+st.markdown("The model has been trained on a dataset from the 'National Institute of Diabetes and Digestive and Kidney Diseases' and has demonstrated an accuracy of 85%.")
 
 # Collect input features with placeholders and validation checks
 pregnancies = st.number_input('No. of Pregnancies',min_value=0,  max_value=20, step=1, key="pregnancies")
