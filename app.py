@@ -1,11 +1,16 @@
+# app.py
 import streamlit as st
 import pickle
 import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 # Load the trained model
-with open('diabetes_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+# with open('diabetes_model.pkl', 'rb') as file:
+#     model = pickle.load(file)
+import requests 
+url='https://raw.githubusercontent.com/imShashanKashyap/Diabetic_Model/main/diabetes_model.pkl'
+response = requests.get(url)
+model = pickle.loads(response.content)
 
 st.title('Diabetes Prediction App')
 st.markdown("Model has been trained with data from 'National Institute of Diabetes and Digestive and Kidney Diseases' and has shown 85% accuracy")
@@ -19,8 +24,46 @@ insulin = st.number_input('Insulin Level (mu U/ml)', min_value=0.1, key="insulin
 bmi = st.number_input('BMI', min_value=0.1, key="bmi")
 age = st.number_input('Age', min_value=1, max_value=100, step=1, key="age")
 
+# Check if any input is empty or invalid
+# inputs_provided = all([
+#     pregnancies >= 0,
+#     glucose > 0,
+#     bp > 0,
+#     skin_thickness > 0,
+#     insulin > 0,
+#     bmi > 0,
+#     age > 0
+# ])
+
+# # Display validation messages for incorrect inputs
+# if pregnancies < 0:
+#     st.error('No. of Pregnancies cannot be negative.')
+# if glucose <= 0:
+#     st.error('Glucose Level must be greater than 0.')
+# if bp <= 0:
+#     st.error('Blood Pressure must be greater than 0.')
+# if skin_thickness <= 0:
+#     st.error('Tricep Skin Thickness must be greater than 0.')
+# if insulin <= 0:
+#     st.error('Insulin Level must be greater than 0.')
+# if bmi <= 0:
+#     st.error('BMI must be greater than 0.')
+# if age <= 0:
+#     st.error('Age must be greater than 0.')
 
 # Predict the outcome only if all inputs are valid
+# if inputs_provided:
+#     if st.button('Predict'):
+#         input_data = np.array([pregnancies, glucose, bp, skin_thickness, insulin, bmi, age])
+#         prediction = model.predict([input_data])
+#         if prediction[0] == 1:
+#             st.write('The patient is diabetic.')
+#         else:
+#             st.write('The patient is not diabetic.')
+
+
+# Predict the outcome only if all inputs are valid
+
 if st.button('Predict'):
     input_data = np.array([pregnancies, glucose, bp, skin_thickness, insulin, bmi, age])
     prediction = model.predict([input_data])
@@ -29,3 +72,8 @@ if st.button('Predict'):
     else:
         st.write('The patient is not diabetic.')
 
+# Optionally, display the confusion matrix
+# Note: You'll need to have the confusion matrix saved in a variable or file for this to work.
+# For now, I've commented this section out.
+# if st.checkbox('Show Confusion Matrix'):
+#     st.write(confusion_matrix)  # Assuming you have the confusion matrix saved in this variable
