@@ -5,7 +5,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 # Load the trained model
-with open('diabetic_model/diabetes_model.pkl', 'rb') as file:
+with open('diabetes_model/diabetes_model.pkl', 'rb') as file:
     model = pickle.load(file)
 import requests 
 # url='https://raw.githubusercontent.com/imShashanKashyap/Diabetic_Model/main/diabetes_model.pkl'
