@@ -16,8 +16,7 @@ model = pickle.loads(response.content)
 
 st.title('Diabetes Prediction App using Machine Learning')
 st.markdown("The model has been trained on a dataset from the 'National Institute of Diabetes and Digestive and Kidney Diseases' and has demonstrated an accuracy of 85%.")
-st.markdown('Find the full code on my Github:  https://github.com/imShashanKashyap/Diabetes_Model')
-st.markdown('Visit to know more about me: https://imshashankashyap.github.io/')
+
 # Collect input features with placeholders and validation checks
 pregnancies = st.number_input('No. of Pregnancies',min_value=0,  max_value=20, step=1, key="pregnancies")
 glucose = st.number_input('Glucose Level (mg/dL)', min_value=0.1, key="glucose")
@@ -74,7 +73,8 @@ if st.button('Predict'):
         st.write('The patient is diabetic.')
     else:
         st.write('The patient is not diabetic.')
-
+    st.markdown('Find the full code on my Github:  https://github.com/imShashanKashyap/Diabetes_Model')
+st.markdown('Visit to know more about me: https://imshashankashyap.github.io/')
 # Optionally, display the confusion matrix
 # Note: You'll need to have the confusion matrix saved in a variable or file for this to work.
 # For now, I've commented this section out.
