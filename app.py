@@ -4,17 +4,16 @@ import pickle
 import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
-# Load the trained model
-# with open('diabetes_model/diabetes_model.pkl', 'rb') as file:
-#     model = pickle.load(file)
 
-file=open('diabetes_model.pkl','rb')
-model = pickle.load(file)
+# Load the trained model
+# file=open('diabetes_model.pkl','rb')
+# model = pickle.load(file)
+
 import requests 
-# url='https://raw.githubusercontent.com/imShashanKashyap/Diabetic_Model/main/diabetes_model.pkl'
+url='https://raw.githubusercontent.com/imShashanKashyap/Diabetic_Model/main/diabetes_model.pkl'
 # url='https://resume-shashank-kashyap.s3.amazonaws.com/diabetes_model.pkl'
-# response = requests.get(url)
-# model = pickle.loads(response.content)
+response = requests.get(url)
+model = pickle.loads(response.content)
 
 st.title('Diabetes Prediction App')
 st.markdown("Model has been trained with data from 'National Institute of Diabetes and Digestive and Kidney Diseases' and has shown 85% accuracy")
