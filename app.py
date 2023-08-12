@@ -18,7 +18,7 @@ st.title('Diabetes Prediction App')
 st.markdown("Model has been trained with data from 'National Institute of Diabetes and Digestive and Kidney Diseases' and has shown 85% accuracy")
 
 # Collect input features with placeholders and validation checks
-pregnancies = st.number_input('No. of Pregnancies',min_value=0,  max_value=20, step=1, key="pregnancies")
+pregnancies = st.number_input('No. of Pregnancies',min_value=0,  max_value=20, step=1, key="pregnancies",label_visibility='visible',label='hi')
 glucose = st.number_input('Glucose Level', min_value=0.1, key="glucose")
 bp = st.number_input('Blood Pressure (mm Hg)', min_value=0.1, key="bp")
 skin_thickness = st.number_input('Tricep Skin Thickness (mm)', min_value=0.1, key="skin_thickness")
