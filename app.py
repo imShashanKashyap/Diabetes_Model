@@ -74,7 +74,7 @@ if st.button('Predict'):
     else:
         st.write('The patient is not diabetic.')
     st.markdown('Find the full code on my Github:  https://github.com/imShashanKashyap/Diabetes_Model')
-st.markdown('Visit to know more about me: https://imshashankashyap.github.io/')
+    st.markdown('Visit to know more about me: https://imshashankashyap.github.io/')
 # Optionally, display the confusion matrix
 # Note: You'll need to have the confusion matrix saved in a variable or file for this to work.
 # For now, I've commented this section out.
