@@ -3,6 +3,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import warnings
+import sklearn
 warnings.filterwarnings('ignore')
 
 # Load the trained model
