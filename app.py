@@ -10,7 +10,7 @@ warnings.filterwarnings('ignore')
 # model = pickle.load(file)
 
 import requests 
-url='https://raw.githubusercontent.com/imShashanKashyap/Diabetic_Model/main/diabetes_model.pkl'
+url='https://raw.githubusercontent.com/imShashanKashyap/Diabetic_Model/main/diabetes_model_.pkl'
 response = requests.get(url)
 model = pickle.loads(response.content)
 
